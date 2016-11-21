@@ -21,7 +21,7 @@ public class Config {
 
         try {
             JsonParser parserJ = new JsonParser();
-            json = (JsonObject) parserJ.parse(new FileReader("src/config.json"));
+            json = (JsonObject) parserJ.parse(new FileReader("src/SDK/config.json"));
 
 
         } catch (Exception e) {
