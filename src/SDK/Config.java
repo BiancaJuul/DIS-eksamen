@@ -16,45 +16,30 @@ public class Config {
 
     public JsonObject initConfig() {
 
-        // Gson gson = new Gson();
-  /*      BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("/config.json")));
-        ConfigMap config = gson.fromJson(br, ConfigMap.class);
 
-
-
-*/
-
-        JsonObject json = new FileReader("/src/config.json");
+        JsonObject json = new JsonObject();
 
         try {
-            JsonParser parserJ = new JsonObject();
-            json = (JsonObject) parserJ.parse(new )
+            JsonParser parserJ = new JsonParser();
+            json = (JsonObject) parserJ.parse(new FileReader("src/config.json"));
 
-            while (line != null) {
-                sb.append(line);
-        //        sb.append(System.lineSeparator());
-                line = br.readLine();
-            }
-            ConfigMap config = gson.fromJson(br, ConfigMap.class);
-            Config.setDbUrl(config.getDbUrl());
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
 
-        } finally {
-            br.close();
         }
 
-        return null;
+        return json;
     }
-    private static String dbUrl;
+
+    private static String DbUrl;
 
     public static String getDbUrl() {
-        return dbUrl;
+        return DbUrl;
     }
 
     public static void setDbUrl(String dbUrl) {
-        Config.dbUrl = dbUrl;
+        DbUrl = dbUrl;
     }
 
 }

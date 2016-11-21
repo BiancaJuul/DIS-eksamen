@@ -13,14 +13,14 @@ import java.io.IOException;
 public class BookItStore {
 
         private Controller controller;
-        private static BookService bookService();
+        private static BookService bookService;
 
         public BookItStore() {
             this.controller = new Controller();
             bookService = new BookService();
         }
 
-        public static void main(String[] args) throws IOException {
+        public static void main(String[] args) {
        //     new BookItStore().run();
 
             JsonObject jsonObject = new Config().initConfig();
